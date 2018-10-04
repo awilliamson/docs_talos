@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Talos User Manual</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -209,13 +209,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
+      <img src="images/small_logo.png" class="logo" alt="Small logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -225,109 +219,339 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#workflow" class="toc-h1 toc-link" data-title="Workflow">Workflow</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#p-repare" class="toc-h2 toc-link" data-title="(P)repare">(P)repare</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#o-ptimize" class="toc-h2 toc-link" data-title="(O)ptimize">(O)ptimize</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#d-eploy" class="toc-h2 toc-link" data-title="(D)eploy">(D)eploy</a>
+                  </li>
+                  <li>
+                    <a href="#reporting-and-evaluation" class="toc-h2 toc-link" data-title="Reporting and Evaluation">Reporting and Evaluation</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#parameter-dictionary" class="toc-h1 toc-link" data-title="Parameter Dictionary">Parameter Dictionary</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#input-formats" class="toc-h2 toc-link" data-title="Input Formats">Input Formats</a>
+                  </li>
+                  <li>
+                    <a href="#allowed-hyperparameters" class="toc-h2 toc-link" data-title="Allowed hyperparameters">Allowed hyperparameters</a>
+                  </li>
+                  <li>
+                    <a href="#hidden-layers" class="toc-h2 toc-link" data-title="Hidden Layers">Hidden Layers</a>
+                  </li>
+                  <li>
+                    <a href="#lr-normalizer" class="toc-h2 toc-link" data-title="LR Normalizer">LR Normalizer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#models" class="toc-h1 toc-link" data-title="Models">Models</a>
+          </li>
+          <li>
+            <a href="#optimization-strategies" class="toc-h1 toc-link" data-title="Optimization Strategies">Optimization Strategies</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#grid-search" class="toc-h2 toc-link" data-title="Grid search">Grid search</a>
+                  </li>
+                  <li>
+                    <a href="#random-optimizers" class="toc-h2 toc-link" data-title="Random Optimizers">Random Optimizers</a>
+                  </li>
+                  <li>
+                    <a href="#probabilistic-reduction" class="toc-h2 toc-link" data-title="Probabilistic reduction">Probabilistic reduction</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#commands" class="toc-h1 toc-link" data-title="Commands">Commands</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#scan" class="toc-h2 toc-link" data-title="Scan()">Scan()</a>
+                  </li>
+                  <li>
+                    <a href="#reporting" class="toc-h2 toc-link" data-title="Reporting()">Reporting()</a>
+                  </li>
+                  <li>
+                    <a href="#predict" class="toc-h2 toc-link" data-title="Predict()">Predict()</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#monitoring" class="toc-h1 toc-link" data-title="Monitoring">Monitoring</a>
+          </li>
+          <li>
+            <a href="#gpu-support" class="toc-h1 toc-link" data-title="GPU Support">GPU Support</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#single-gpu-single-job" class="toc-h2 toc-link" data-title="Single GPU, Single Job">Single GPU, Single Job</a>
+                  </li>
+                  <li>
+                    <a href="#single-gpu-multiple-jobs" class="toc-h2 toc-link" data-title="Single GPU, Multiple Jobs">Single GPU, Multiple Jobs</a>
+                  </li>
+                  <li>
+                    <a href="#multi-gpu-single-job" class="toc-h2 toc-link" data-title="Multi-GPU, Single Job">Multi-GPU, Single Job</a>
+                  </li>
+                  <li>
+                    <a href="#force-cpu" class="toc-h2 toc-link" data-title="Force CPU">Force CPU</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#functional-model" class="toc-h1 toc-link" data-title="Functional Model">Functional Model</a>
+          </li>
+          <li>
+            <a href="#troubleshooting" class="toc-h1 toc-link" data-title="Troubleshooting">Troubleshooting</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#need-help" class="toc-h2 toc-link" data-title="Need help">Need help</a>
+                  </li>
+                  <li>
+                    <a href="#found-an-issue" class="toc-h2 toc-link" data-title="Found an issue">Found an issue</a>
+                  </li>
+                  <li>
+                    <a href="#common-errors" class="toc-h2 toc-link" data-title="Common errors">Common errors</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/autonomio/talos'>Code on Github</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to Talos! You can use Talos for hyperparameter optimization with Keras models. Talos allows you to use Keras models exactly as you would otherwise, and is built for and tested on Python 2 and 3.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To install stable:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<pre class="highlight shell tab-shell"><code>pip install talos
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Latest dev version:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>pip install git+https://github.com/autonomio/talos.git@daily-dev
+</code></pre>
+<p>Talos incorporates grid, random, and probabilistic hyperparameter optimization strategies, with focus on maximizing the flexibility, efficiency, and result of random strategy. Talos users benefit from access to pseudo, quasi, true, and quantum random methods.  </p>
+
+<p>Talos provides a fully automated <em>POD</em> (Prepare, Optimize, Deploy) pipeline that consistently yields state-of-the-art prediction results in a wide-range of prediction problems.</p>
+
+<p>Talos is maintained by a non-profit foundation with 501(c)(3) status. The code is available on <a href="https://github.com/autonomio/talos">Github</a>.</p>
+<h1 id='getting-started'>Getting Started</h1><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">talos</span> <span class="k">as</span> <span class="n">ta</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c"># your parameter boundaries come here</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">input_model</span><span class="p">():</span>
+  <span class="c"># your model comes here</span>
+
+<span class="n">ta</span><span class="o">.</span><span class="n">Scan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">input_model</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Find code complete examples <a href="#">here</a></p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>To get started with your first experiment is easy. You need to have three things:</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<ul>
+<li>a hyperparameter dictionary</li>
+<li>a working Keras model</li>
+<li>a Talos experiment</li>
+</ul>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><strong>STEP 1</strong> &gt;&gt; In a regular Python dictionary, you declare the hyperparameters and the boundaries you want to include in the experiment.</p>
+
+<p><strong>STEP 2</strong> &gt;&gt; In order to prepare a Keras model for a Talos experiment, you simply replace parameters you want to include in the scan, with references to the parameter dictionary.</p>
+
+<p><strong>STEP 3</strong> &gt;&gt; To start the experiment, you input the parameter dictionary and the Keras model into Talos with the option for Grid, Random, or Probabilistic optimization strategy.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Setting a complex hyperparameter optimization experiment with Talos rarely takes longer than 5 minutes.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='workflow'>Workflow</h1>
+<p>Talos follows <em>POD</em> (prepare, optimize, deploy) workflow, with additional functionality for evaluation and reporting, including plots for visual analysis.</p>
+<h2 id='p-repare'>(P)repare</h2>
+<p>Preparation involves the process of defining the hyperparameter space for the experiment, and the setting of the experiment options such as choosing of the optimization strategy.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>See <a href="#parameter-dictionary">Parameter dictionary</a>, <a href="#models">Models</a>, and <a href="#scan">Scan()</a>.</p>
+<h2 id='o-ptimize'>(O)ptimize</h2>
+<p>Optimization involves the automated process of finding an optimal hyperparameter combination for a well generalizing model for a given prediction task.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>See <a href="#optimization-strategies">Optimization strategies</a> and <a href="#reporting">Reporting</a>.</p>
+<h2 id='d-eploy'>(D)eploy</h2>
+<p>Deployment involves the automated process of storing locally the required assets for local or remote deployment of a predictive model for production purpose.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<p>See <a href="#predict">Predict()</a>.</p>
+<h2 id='reporting-and-evaluation'>Reporting and Evaluation</h2>
+<p>In addition Talos provides several useful tools for analysis and evaluation of experiments, including live updating plots for epoch-by-epoch visual analysis of experiment progress.</p>
+
+<p>See <a href="#reporting">Reporting()</a> and <a href="#monitoring">Monitoring</a></p>
+<h1 id='parameter-dictionary'>Parameter Dictionary</h1>
+<p>The first step in an experiment is to decide the hyperparameters you want to use in the optimization process.</p>
+
+<blockquote>
+<p>Example parameter dictionary:</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">keras.activations</span> <span class="kn">import</span> <span class="n">relu</span><span class="p">,</span> <span class="n">elu</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'first_neuron'</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">48</span><span class="p">],</span>
+    <span class="s">'activation'</span><span class="p">:</span> <span class="p">[</span><span class="n">relu</span><span class="p">,</span> <span class="n">elu</span><span class="p">],</span>
+    <span class="s">'batch_size'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Activations need to go in as objects and not strings</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+
+<p>In addition to standard Keras hyperparameters, Talos allows several extra conveniences such as the ability to include number of hidden layers in the process.</p>
+<h2 id='input-formats'>Input Formats</h2>
+<p>Parameters may be inputted in three distinct ways:</p>
+
+<ul>
+<li>as a set of discreet values in a list</li>
+<li>as a range of values in a tuple</li>
+<li>as a single value in list</li>
+</ul>
+<pre class="highlight python tab-python"><code><span class="c"># discreet values in a list</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'first_neuron'</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">96</span><span class="p">]}</span>
+
+<span class="c"># range of values in a tuple</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'first_neuron'</span><span class="p">:</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
+
+<span class="c"># a single value</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s">'first_neuron'</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">]}</span>
+
+</code></pre>
+<p>When a tuple is used for a range of values, the first value is <em>min</em>, second value is <em>max</em> and the third value is <em>steps</em>.</p>
+<h2 id='allowed-hyperparameters'>Allowed hyperparameters</h2>
+<p>Generally speaking, whatever hyperparameters you can use in Keras, you can include in a Talos experiment as simply as including the hyperparameter label together with the desired values or the range of values in the parameter dictionary.</p>
+
+<p>If you find that a given hyperparamter is not supported, <a href="https://github.com/autonomio/talos/issues/new/choose">create an issue</a> on Github.</p>
+<h2 id='hidden-layers'>Hidden Layers</h2>
+<p>Each hidden layer is followed by a Dropout regularizer. If this is undesired, set dropout to 0 with <code>dropout: [0]</code> in the parameter dictionary.</p>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos.model.layers</span> <span class="kn">import</span> <span class="n">hidden_layers</span>
+
+<span class="k">def</span> <span class="nf">input_model</span><span class="p">():</span>
+  <span class="c"># model prep and input layer...</span>
+  <span class="n">hidden_layers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="c"># rest of the model...</span>
+</code></pre>
+<p>Including hidden_layers in a model allows the use of number of hidden layers as an optimization parameter.</p>
+
+<aside class="notice">
+When hidden layers are used, <code>dropout, hidden_layers, and first_neuron</code> parameters must be included in the parameter dictionary.
+</aside>
+<h2 id='lr-normalizer'>LR Normalizer</h2>
+<p>As one experiment may include more than one optimizer, and optimizers generally have default learning rates in different order of magnitudes, lr_normalizer can be used to allow simultanously including different optimizers and different degrees of learning rates into the Talos experiment.</p>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos.model.normalizers</span> <span class="kn">import</span> <span class="n">lr_normalizer</span>
+<span class="c"># model first part is here ...</span>
+<span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s">'optimizer'</span><span class="p">](</span><span class="n">lr_normalizer</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s">'lr'</span><span class="p">],</span> <span class="n">params</span><span class="p">[</span><span class="s">'optimizer'</span><span class="p">])),</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'accuracy'</span><span class="p">])</span>
+<span class="c"># model ending part is here ...</span>
+</code></pre>
+<aside class="notice">
+The lr_normalizer needs to be invoked explicitly
+</aside>
+<h1 id='models'>Models</h1>
+<p>The purpose of Talos is to allow you to continue working with Keras models exactly the way you are used to, and to allow leveraging the flexibility available in Keras without adding any restrictions. <strong>Any Keras model can be used in a Talos experiment</strong> and Talos does not introduce any new syntax to Keras models.</p>
+
+<blockquote>
+<p>A single line example of modifying the model</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="c"># In original Keras model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c"># In Talos</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="s">'first_neuron'</span><span class="p">],</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+
+</code></pre>
+<p>In order to use a Keras model in an experiment, you have to modify a working Keras model in a way where the hyperparameter references are replaced with the parameter dictionary references.</p>
+
+<p>You can find several examples of modified Keras models ready for a Talos experiment <a href="https://github.com/autonomio/talos/blob/master/talos/examples/models.py">here</a> and a code complete example with parameter dictionary and experiment configuration <a href="https://github.com/autonomio/talos/blob/master/examples/iris.py">here</a>.</p>
+
+<aside class="notice">
+You should always make sure that your Keras model works as-is before using it in a Talos experiment.
+</aside>
+<h1 id='optimization-strategies'>Optimization Strategies</h1>
+<p>Talos incorporates several optimization strategies:</p>
+
+<ul>
+<li>Grid search</li>
+<li>Random search</li>
+<li>Probabilistic reduction</li>
+</ul>
+<h2 id='grid-search'>Grid search</h2>
+<p>Grid search is the default optimization strategy; all hyperparameter permutations in a given parameter boundary will be processed. Grid search is not recommended for anything but very small permutation spaces. A better option is to use random optimization strategy by invoking <code>grid_downsample</code> in Scan().</p>
+<h2 id='random-optimizers'>Random Optimizers</h2>
+<p>Random search is the recommended optimization strategy in Talos. This is invoked through the &#39;grid_downsample&#39; argument in Scan() with a floating point value in the experiment options. For example, to randomly pick 10% of the permutations, a grid_downsample value of 0.1 is used.</p>
+<pre class="highlight python tab-python"><code><span class="n">Scan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+     <span class="n">params</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+     <span class="n">model</span><span class="o">=</span><span class="n">input_model</span><span class="p">,</span>
+     <span class="n">grid_downsample</span><span class="o">=.</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+<p>Several pseudo, quasi, true, and quantum random methods are provided for random searches. These are controlled through the &#39;random_method&#39; argument in Scan().</p>
+<pre class="highlight python tab-python"><code><span class="n">Scan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+     <span class="n">params</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+     <span class="n">model</span><span class="o">=</span><span class="n">input_model</span><span class="p">,</span>
+     <span class="n">grid_downsample</span><span class="o">=.</span><span class="mi">1</span><span class="p">,</span>
+     <span class="n">random_method</span><span class="o">=</span><span class="n">quantum</span><span class="p">)</span>
+</code></pre>
+<ul>
+<li>Quantum</li>
+<li>Ambient sound</li>
+<li>Halton sequence</li>
+<li>Sobol sequence</li>
+<li>Korobov matrix</li>
+<li>Latin hypercube</li>
+<li>Latin hypercube with Sudoku style constraint</li>
+<li>Improved Latin hypercube (very slow)</li>
+<li>Uniform Mersenne</li>
+<li>Uniform cryptographically secure</li>
+</ul>
+
+<p>Each random method results in a different degree of discrepancy; whereas uniform random methods tend to have higher discrepancy, as does quantum and ambient sound, hypercube and Korobov have lower.  </p>
+<h2 id='probabilistic-reduction'>Probabilistic reduction</h2>
+<p>The probabilistic reducers can be used together with a Grid search, or together with any of the Random methods. The reducer makes a stop between set number of rounds i.e. &#39;reduction_interval&#39; and uses a probabilistic method to remove poorly performing parameter configurations from the remaining search space.</p>
+
+<p>Several parameters are related with this:</p>
+
+<p><strong>Reduction Method:</strong> Currently only one reduction method is supported &#39;correlation&#39;.</p>
+
+<p><strong>Reduction Interval:</strong> The number of rounds between each reduction stop.</p>
+
+<p><strong>Reduction Window:</strong> The number of rounds to look back for input signals (e.g. when reduction_window is 50, the results of the last 50 rounds are used for inference)</p>
+
+<p><strong>Reduction Threshold:</strong> A floating point value between 0 and 1, where 1 is perfect correlation and 0 is no correlation. The lower the correlation, the less significant a given hyperparameter is with results.</p>
+
+<p><strong>Reduction Metric:</strong> The metric against which optimization is performed (e.g. &#39;val_acc&#39; or &#39;fmeasure&#39;)</p>
+
+<p><strong>Reduce Loss:</strong> If &#39;reduction_metric&#39; is a loss metric, then this needs to be True.</p>
+<h1 id='commands'>Commands</h1><h2 id='scan'>Scan()</h2>
+<blockquote>
+<p>Starting a simple quantum random experiment</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">Scan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
+     <span class="n">params</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+     <span class="n">model</span><span class="o">=</span><span class="n">input_model</span><span class="p">,</span>
+     <span class="n">random_method</span><span class="o">=</span><span class="n">quantum</span><span class="p">)</span>
+</code></pre>
+<p>The experiment is configured and started through the <a href="https://github.com/autonomio/talos/blob/master/talos/scan/Scan.py">Scan()</a> command. All of the options effecting the experiment, other than the hyperparameters themselves, are configured through the Scan arguments. The most common use-case is where ~10 arguments are invoked.</p>
+<h3 id='scan-arguments'>Scan Arguments</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -336,169 +560,372 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td><code>x</code></td>
+<td>user input</td>
+<td>prediction features</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td><code>y</code></td>
+<td>user input</td>
+<td>prediction outcome variable</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>user input</td>
+<td>the parameter dictionary</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>user input</td>
+<td>the Keras model as a function</td>
+</tr>
+<tr>
+<td><code>dataset_name</code></td>
+<td>None</td>
+<td>Used for experiment log</td>
+</tr>
+<tr>
+<td><code>experiment_no</code></td>
+<td>None</td>
+<td>Used for experiment log</td>
+</tr>
+<tr>
+<td><code>x_val</code></td>
+<td>None</td>
+<td>validation data for x</td>
+</tr>
+<tr>
+<td><code>y_val</code></td>
+<td>None</td>
+<td>validation data for y</td>
+</tr>
+<tr>
+<td><code>val_split</code></td>
+<td>.3</td>
+<td>validation data split ratio</td>
+</tr>
+<tr>
+<td><code>shuffle</code></td>
+<td>True</td>
+<td>if the data should be shuffled or not</td>
+</tr>
+<tr>
+<td><code>random_method</code></td>
+<td>&#39;uniform_mersenne&#39;</td>
+<td>the random method to be used</td>
+</tr>
+<tr>
+<td><code>search_method</code></td>
+<td>&#39;random&#39;</td>
+<td>the order in which permutations are checked</td>
+</tr>
+<tr>
+<td><code>reduction_method</code></td>
+<td>None</td>
+<td>type of probabilistic reduction is used</td>
+</tr>
+<tr>
+<td><code>reduction_interval</code></td>
+<td>50</td>
+<td>number of permutations after which reduction is applied</td>
+</tr>
+<tr>
+<td><code>reduction_window</code></td>
+<td>20</td>
+<td>the look back window for reduction process</td>
+</tr>
+<tr>
+<td><code>grid_downsample</code></td>
+<td>None</td>
+<td>A float to indicate fraction for random sampling</td>
+</tr>
+<tr>
+<td><code>reduction_threshold</code></td>
+<td>0.2</td>
+<td>The threshold at which reduction is applied</td>
+</tr>
+<tr>
+<td><code>reduction_metric</code></td>
+<td>&#39;val_acc&#39;</td>
+<td>The metric to be used for reduction</td>
+</tr>
+<tr>
+<td><code>reduce_loss</code></td>
+<td>False</td>
+<td>If reduction_metric is a loss function</td>
+</tr>
+<tr>
+<td><code>round_limit</code></td>
+<td>None</td>
+<td>Maximum number of permutations in the experiment</td>
+</tr>
+<tr>
+<td><code>talos_log_name</code></td>
+<td>&#39;talos.log&#39;</td>
+<td>Name of the master log</td>
+</tr>
+<tr>
+<td><code>debug</code></td>
+<td>False</td>
+<td>Turn on debug messages</td>
+</tr>
+<tr>
+<td><code>seed</code></td>
+<td>None</td>
+<td>Seed for random states</td>
+</tr>
+<tr>
+<td><code>clear_tf_session</code></td>
+<td>True</td>
+<td>Clear tensorflow session after each round</td>
+</tr>
+<tr>
+<td><code>disable_progress_bar</code></td>
+<td>False</td>
+<td>Show live updating progress bar</td>
+</tr>
+<tr>
+<td><code>functional_model</code></td>
+<td>False</td>
+<td>For functional model support</td>
+</tr>
+<tr>
+<td><code>last_epoch_value</code></td>
+<td>False</td>
+<td>Reporting last epoch value in log</td>
+</tr>
+<tr>
+<td><code>print_params</code></td>
+<td>False</td>
+<td>Print each permutation hyperparameters</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<aside class="notice"> x, y, params, and model are the only needed arguments to start the experiment, all other are optional.</aside>
+<h2 id='reporting'>Reporting()</h2>
+<p>The experiment results can be analyzed through the <a href="https://github.com/autonomio/talos/blob/master/talos/utils/reporting.py">Reporting()</a> command. The reporting consist of access to several meaningful signals related with the experiment, together with a dataframe with results for each permutation, together with the corresponding hyperparameter configurations. Reporting may be used after Scan completes, or during an experiment (from a different shell / kernel).</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Using reporting</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<pre class="highlight python tab-python"><code><span class="n">r</span> <span class="o">=</span> <span class="n">Reporting</span><span class="p">(</span><span class="s">'experiment_log.csv'</span><span class="p">)</span>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="c"># returns the results dataframe</span>
+<span class="n">r</span><span class="o">.</span><span class="n">data</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="c"># returns the highest value for 'val_fmeasure'</span>
+<span class="n">r</span><span class="o">.</span><span class="n">high</span><span class="p">(</span><span class="s">'val_fmeasure'</span><span class="p">)</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<span class="c"># returns the number of rounds it took to find best model</span>
+<span class="n">r</span><span class="o">.</span><span class="n">rounds2high</span><span class="p">()</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="c"># draws a histogram for 'val_acc'</span>
+<span class="n">r</span><span class="o">.</span><span class="n">plot_hist</span><span class="p">()</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
 <aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+Reporting works by loading the experiment log .csv file which is saved locally as part of the experiment. The filename can be changed through dataset_name and experiment_no Scan arguments.
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The evaluation of experiment results consist of Reporting and Predict classes.</p>
+<h3 id='reporting-functions'>Reporting Functions</h3>
+<p>See docstrings for each function for a more detailed description.</p>
 
+<p><strong><code>high</code></strong> The highest result for a given metric</p>
+
+<p><strong><code>rounds</code></strong>  The number of rounds in the experiment</p>
+
+<p><strong><code>rounds2high</code></strong> The number of rounds it took to get highest result</p>
+
+<p><strong><code>low</code></strong> The lowest result for a given metric</p>
+
+<p><strong><code>correlate</code></strong> A dataframe with Spearman correlation against a given metric</p>
+
+<p><strong><code>plot_line</code></strong> A round-by-round line graph for a given metric</p>
+
+<p><strong><code>plot_hist</code></strong> A histogram for a given metric where each observation is a permutation</p>
+
+<p><strong><code>plot_corr</code></strong> A correlation heatmap where a single metric is compared against hyperparameters</p>
+
+<p><strong><code>table</code></strong> A sortable dataframe with a given metric and hyperparameters</p>
+
+<p><strong><code>best_params</code></strong> A dictionary of parameters from the best model</p>
+<h3 id='reporting-arguments'>Reporting Arguments</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>filename</td>
+<td>None</td>
+<td>name of the file with experiment log</td>
 </tr>
 </tbody></table>
+<h2 id='predict'>Predict()</h2>
+<p>In order to identify the best model from a given experiment, or to perform predictions with model/s, the <a href="[Reporting()](https://github.com/autonomio/talos/blob/master/talos/utils/predict.py)">Predict()</a> command can be used.</p>
+
+<blockquote>
+<p>Using predict</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="n">p</span> <span class="o">=</span> <span class="n">Predict</span><span class="p">(</span><span class="s">'scan_object'</span><span class="p">)</span>
+
+<span class="c"># returns model_id for best performing model</span>
+<span class="n">r</span><span class="o">.</span><span class="n">best_model</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s">'val_fmeasure'</span><span class="p">)</span>
+
+<span class="c"># returns predictions for input x</span>
+<span class="n">r</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c"># performs a 10-fold cross-validation for multi-class prediction</span>
+<span class="n">r</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">folds</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)</span>
+</code></pre><h3 id='predict-functions'>Predict Functions</h3>
+<p>See docstring for each function for a more detailed information, and the required input arguments.</p>
+
+<p><strong><code>load_model</code></strong> Loads the Keras model with weights so it can be used in the local environment for predictions or other purpose. Requires <code>model_id</code> as argument. The <code>model_id</code> corresponds with the round in the experiment.</p>
+
+<p><strong><code>best_model</code></strong> Identifies the <code>model_id</code> for the best performing model based on a given metric (e.g. &#39;val_fmeasure&#39;).</p>
+
+<p><strong><code>predict</code></strong> Makes predictions based on input <code>x</code> and <code>model_id</code>. If <code>model_id</code> is not given, best model will be used.</p>
+
+<p><strong><code>predict_classes</code></strong> Same as predict, but predicts classes.</p>
+
+<p><strong><code>evaluate</code></strong> Evaluates models using a k-fold crossvalidation.</p>
+<h3 id='predict-arguments'>Predict Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>scan_object</code></td>
+<td>None</td>
+<td>the object from Scan() after experiment is completed</td>
+</tr>
+</tbody></table>
+<h1 id='monitoring'>Monitoring</h1>
+<p>There are several options for monitoring the experiment.</p>
+<pre class="highlight python tab-python"><code><span class="c"># turn off progress bar</span>
+<span class="n">Scan</span><span class="p">(</span><span class="n">disable_progress_bar</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c"># enable live training plot</span>
+<span class="kn">from</span> <span class="nn">talos</span> <span class="kn">import</span> <span class="n">live</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>
+                <span class="n">Y</span><span class="p">,</span>
+                <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">live</span><span class="p">()])</span>
+
+<span class="c"># turn on parameter printing</span>
+<span class="n">Scan</span><span class="p">(</span><span class="n">print_params</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre>
+<p><strong>Progress Bar :</strong> A round-by-round updating progress bar that shows the remaining rounds, together with a time estimate to completion. Progress bar is on by default.</p>
+
+<p><strong>Live Monitoring :</strong> Live monitoring provides an epoch-by-epoch updating line graph that is enabled through the <code>live()</code> custom callback.</p>
+
+<p><strong>Round Hyperparameters :</strong> Displays the hyperparameters for each permutation. Does not work together with live monitoring.</p>
+<h1 id='gpu-support'>GPU Support</h1>
+<p>Talos supports scenarios where on a single system one or more GPUs are handling one or more simultaneous jobs. The base GPU support is handled by TensorFlow, so make sure that you have the GPU version of TensorFlow installed.</p>
+
+<p>You can watch system GPU utilization anytime with:</p>
+
+<p><code>watch -n0.5 nvidia-smi</code></p>
+<h2 id='single-gpu-single-job'>Single GPU, Single Job</h2>
+<p>Single GPU works out-of-the-box, as long as you have the GPU version of TensorFlow installed. In case you already have the CPU version installed, you have to uninstall TensorFlow and install the GPU version.</p>
+<h2 id='single-gpu-multiple-jobs'>Single GPU, Multiple Jobs</h2>
+<blockquote>
+<p>Parallel Scans with multiple GPU system</p>
+</blockquote>
+<pre class="highlight python tab-python"><code>
+<span class="kn">from</span> <span class="nn">talos.utils.gpu_utils</span> <span class="kn">import</span> <span class="n">parallel_gpu_jobs</span>
+
+<span class="c"># split GPU memory in two for two parallel jobs</span>
+<span class="n">parallel_gpu_jobs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+</code></pre>
+<blockquote>
+<p>Run the above lines before the Scan() command</p>
+</blockquote>
+
+<p>A single GPU can be split to simultaneously perform several experiments. This is useful you want to work on more than one scope at one time, or when you&#39;re analyzing the results of an ongoing experiment with <code>Reporting()</code> and are ready to start the next experiment while keeping the first one running.</p>
+
+<p><strong>NOTE:</strong> GPU memory needs to be reserved pro-actively i.e. once the experiment is already running with full GPU memory, part of the memory can no longer be allocated to a new experiment.</p>
+<h2 id='multi-gpu-single-job'>Multi-GPU, Single Job</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos.utils.gpu_utils</span> <span class="kn">import</span> <span class="n">multi_gpu</span>
+
+<span class="c"># split a single job to multiple GPUs</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">multi_gpu</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Include the above line in the input model before model.compile()</p>
+</blockquote>
+
+<p>Multiple GPUs on a single machine can be assigned to work on a single machine in a parallelism fashion. This is useful when you have more than one GPU on a single machine, and want to speed up the experiment. Each GPU roughly speaking reduces compute time linearly.</p>
+<h2 id='force-cpu'>Force CPU</h2><pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos.utils.gpu_utils</span> <span class="kn">import</span> <span class="n">force_cpu</span>
+
+<span class="c"># Force CPU use on a GPU system</span>
+<span class="n">force_cpu</span><span class="p">()</span>
+</code></pre>
+<blockquote>
+<p>Run the above lines before the Scan() command</p>
+</blockquote>
+
+<p>Sometimes it&#39;s useful (for example when <code>batch_size</code> tends to be very small) to disable GPU and use CPU instead. This can be done simply by invoking <code>force_cpu()</code>.</p>
+<h1 id='functional-model'>Functional Model</h1>
+<p>Both Sequential and Functional Keras models are supported in Talos. The workflow would be otherwise the same, but you have to declare in <code>Scan()</code> with <code>functional_model=True</code> that the model is functional.</p>
+<pre class="highlight python tab-python"><code>
+<span class="n">Scan</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">input_model</span><span class="p">,</span> <span class="n">functional_model</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+</code></pre><h1 id='troubleshooting'>Troubleshooting</h1>
+<p>If you run into trouble with something, or things are not working as expected, there are several things to do:</p>
+<h2 id='need-help'>Need help</h2>
+<ul>
+<li>Read this manual</li>
+<li>See one of the <a href="https://github.com/autonomio/talos/tree/master/examples">examples</a></li>
+<li>Ask a <a href="https://stackoverflow.com/questions/ask">question</a> on Stackoverflow</li>
+<li>Ask <a href="https://gitter.im/_talos_/Lobby?source=orgpage">for help</a> in the Talos Gitter channel</li>
+</ul>
+<h2 id='found-an-issue'>Found an issue</h2>
+<ul>
+<li>See the <a href="https://github.com/autonomio/talos/issues">open</a> and <a href="https://github.com/autonomio/talos/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+is%3Aclosed+">closed</a> issues on Github.</li>
+<li>See the <a href="#common-errors">Common errors</a></li>
+</ul>
+<h2 id='common-errors'>Common errors</h2>
+<p>There are several common user-related cases where resulting errors are simple to overcome.</p>
+<h3 id='subprocess32-error'><code>subprocess32 error</code></h3>
+<p>This might arise during the installation on Python2.7 systems. The error results from a dependency in matplotlib. The issue can be overcome by first installing an older version of matplotlib:</p>
+
+<p><code>pip install matplotlib==1.5.3</code></p>
+<h3 id='wrong-numpy-version'><code>wrong numpy version</code></h3>
+<p>This might arise in Python2.7 systems. The issue is overcome by installing a specific version of Numpy:</p>
+
+<p><code>pip install numpy==1.14.5</code></p>
+<h3 id='typeerror-39-str-39-object-is-not-callable'><code>TypeError: &#39;str&#39; object is not callable</code></h3>
+<p>This error comes as a result of listing optimizers as string values as opposed to the actual object name in the params dictionary. The solution is to use the object name instead.</p>
+<h3 id='typeerror-unsupported-operand-type-s-for-39-int-39-and-39-numpy-str_-39'><code>TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;numpy.str_&#39;</code></h3>
+<p>Same as above.</p>
+<h3 id='typeerror-39-numpy-str_-39-object-cannot-be-interpreted-as-an-integer'><code>TypeError: &#39;numpy.str_&#39; object cannot be interpreted as an integer</code></h3>
+<p>Same as above.</p>
+<h3 id='valueerror-could-not-interpret-optimizer-identifier-lt-class-39-keras-optimizers-adam-39-gt'><code>ValueError: Could not interpret optimizer identifier: &lt;class &#39;keras.optimizers.Adam&#39;&gt;</code></h3>
+<p>This is the reverse of the above; when lr_normalizer is not used, string values for optimizers should be used in the params dictionary.</p>
+<h3 id='keyerror-39-first_neuron-39'><code>KeyError: &#39;first_neuron&#39;</code></h3>
+<p>The &#39;first_neuron&#39; hyperparameter is missing from the params dictionary, or it&#39;s called something else than &#39;first_neuron&#39;.</p>
+<h3 id='keyerror-39-hidden_layers-39-or-keyerror-39-dropout-39'><code>KeyError: &#39;hidden_layers&#39; or KeyError: &#39;dropout&#39;</code></h3>
+<p>When ever hidden_layers is applied in the model, hidden_layers and dropout parameters need to be included in the params dictionary</p>
+<h3 id='attributeerror-39-history-39-object-has-no-attribute-39-keys-39'><code>AttributeError: &#39;History&#39; object has no attribute &#39;keys&#39;</code></h3>
+<p>This happens when the input model has:</p>
+
+<p><code>return model, out</code></p>
+
+<p>You fix this by using the right order for the objects:</p>
+
+<p><code>return out, model</code></p>
+
+<aside class="notice"> If everything else fails, <a href=https://github.com/autonomio/talos/issues/new/choose> post a new issue </a> on Github.
+</aside>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
