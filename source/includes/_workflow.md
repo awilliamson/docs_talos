@@ -18,10 +18,10 @@ See [Optimization strategies](#optimization-strategies) and [Reporting](#reporti
 
 Deployment involves the automated process of storing locally the required assets for local or remote deployment of a predictive model for production purpose.
 
-See [Predict()](#predict).
+See [Deploy()](#deploy) and [Predict](#predict)
 
 ## Reporting and Evaluation
 
 In addition Talos provides several useful tools for analysis and evaluation of experiments, including live updating plots for epoch-by-epoch visual analysis of experiment progress.
 
-See [Reporting()](#reporting) and [Monitoring](#monitoring)
+See [Evaluate](#evaluate), [Reporting()](#reporting) and [Monitoring](#monitoring)

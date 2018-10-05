@@ -62,3 +62,38 @@ Several parameters are related with this:
 **Reduction Metric:** The metric against which optimization is performed (e.g. 'val_acc' or 'fmeasure')
 
 **Reduce Loss:** If 'reduction_metric' is a loss metric, then this needs to be True.
+
+## Early Stopping
+
+The time that it takes to get to the desired result may be dramatically reduced by using an early stopping functionality. It is good to note though, that from the hyperparameter optimization standpoint, early stopping is not easy to get right, and it's often better to do without it. Early stopping needs to be invoked through Talos.
+
+
+> Example for using the early_stopper callback
+```python
+from talos.model.early_stopper import early_stopper
+
+out = model.fit(x_train, y_train,
+                batch_size=params['batch_size'],
+                epochs=params['epochs'],
+                verbose=0,
+                validation_data=[x_val, y_val],
+                callbacks=early_stopper(params['epochs'], mode='strict'))
+```
+
+### `early_stopper` parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+`epochs` | NA | used for moderate mode
+`monitor` | val_loss | the value to be monitored
+`mode` | moderate | moderate, strict, or custom
+`min_delta` | user input | rate of change at which point flag is raised
+`patience` | user input | number of epochs before termination from flag
+
+The `mode` has three options and effects the point at which the flag is raised, and the number of epochs before termination on flag:
+
+**moderate:** If the value is not changing for 10th of the total epochs
+
+**strict:** If the value is not changing for 2 epochs
+
+**custom:** Input needs to be a list or tuple with two integers, where the first integer is `min_delta` and the second is `patience`.

@@ -47,3 +47,32 @@ Parameter | Default | Description
 `print_params` | False | Print each permutation hyperparameters
 
 <aside class="notice"> x, y, params, and model are the only needed arguments to start the experiment, all other are optional.</aside>
+
+### Scan Object
+
+The scan object has several attributes that are used for `Reporting()`, `Predict()` and `Deploy()`, but may also be useful to access directly. The namespace only consist of meaningful attributes.
+
+```python
+
+# returns the results dataframe
+h.data
+
+# returns the experiment configuration details
+h.details
+
+# returns the epoch entropy dataframe
+h.peak_epochs_df
+
+# returns the saved models (json)
+h.saved_models
+
+# returns the saved model weights
+h.saved_weights
+
+# returns x data
+h.x
+
+# returns y data
+h.y
+
+```

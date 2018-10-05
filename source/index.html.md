@@ -14,6 +14,9 @@ includes:
   - scan
   - reporting
   - predict
+  - evaluate
+  - deploy
+  - restore
   - misc
   - troubleshooting
 
