@@ -971,14 +971,12 @@ Reporting works by loading the experiment log .csv file which is saved locally a
 <aside class='notice'> The above arguments are for the <code>evaluate</code> attribute of the <code>Evaluate</code> object.</aside>
 <h2 id='deploy'>Deploy()</h2>
 <blockquote>
-<p>A successful experiment can be deployed easily
-```Python
-from talos import Deploy</p>
+<p>A successful experiment can be deployed easily</p>
 </blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos</span> <span class="kn">import</span> <span class="n">Deploy</span>
 
-<p>Deploy(scan_object, &#39;experiment_name&#39;)
-```</p>
-
+<span class="n">Deploy</span><span class="p">(</span><span class="n">scan_object</span><span class="p">,</span> <span class="s">'experiment_name'</span><span class="p">)</span>
+</code></pre>
 <p>When you&#39;ve achieved a successful result, you can use <code>Deploy()</code> to prepare a production ready package that can be easily transferred to another environment or system, or sent or uploaded. The deployment package will consists of the best performing model, which is picked automatically against &#39;val_acc&#39; unless stated with <code>metric</code> argument.</p>
 
 <p>The deploy package consists of:</p>
@@ -1024,14 +1022,12 @@ from talos import Deploy</p>
 </tbody></table>
 <h2 id='restore'>Restore()</h2>
 <blockquote>
-<p>The Deploy package can be read back to an object
-```Python
-from talos import Restore</p>
+<p>The Deploy package can be read back to an object</p>
 </blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos</span> <span class="kn">import</span> <span class="n">Restore</span>
 
-<p>a = Restore(scan_object, &#39;experiment_name&#39;)
-```</p>
-
+<span class="n">a</span> <span class="o">=</span> <span class="n">Restore</span><span class="p">(</span><span class="n">scan_object</span><span class="p">,</span> <span class="s">'experiment_name'</span><span class="p">)</span>
+</code></pre>
 <p>The <code>Deploy()</code> .zip package can be read back into a copy of the original experiment assets with <code>Restore()</code>. The object consists of:</p>
 
 <ul>
