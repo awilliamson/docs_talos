@@ -270,6 +270,9 @@
                   <li>
                     <a href="#probabilistic-reduction" class="toc-h2 toc-link" data-title="Probabilistic reduction">Probabilistic reduction</a>
                   </li>
+                  <li>
+                    <a href="#early-stopping" class="toc-h2 toc-link" data-title="Early Stopping">Early Stopping</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -283,6 +286,15 @@
                   </li>
                   <li>
                     <a href="#predict" class="toc-h2 toc-link" data-title="Predict()">Predict()</a>
+                  </li>
+                  <li>
+                    <a href="#evaluate" class="toc-h2 toc-link" data-title="Evaluate()">Evaluate()</a>
+                  </li>
+                  <li>
+                    <a href="#deploy" class="toc-h2 toc-link" data-title="Deploy()">Deploy()</a>
+                  </li>
+                  <li>
+                    <a href="#restore" class="toc-h2 toc-link" data-title="Restore()">Restore()</a>
                   </li>
               </ul>
           </li>
@@ -394,11 +406,11 @@ Setting a complex hyperparameter optimization experiment with Talos rarely takes
 <h2 id='d-eploy'>(D)eploy</h2>
 <p>Deployment involves the automated process of storing locally the required assets for local or remote deployment of a predictive model for production purpose.</p>
 
-<p>See <a href="#predict">Predict()</a>.</p>
+<p>See <a href="#deploy">Deploy()</a> and <a href="#predict">Predict</a></p>
 <h2 id='reporting-and-evaluation'>Reporting and Evaluation</h2>
 <p>In addition Talos provides several useful tools for analysis and evaluation of experiments, including live updating plots for epoch-by-epoch visual analysis of experiment progress.</p>
 
-<p>See <a href="#reporting">Reporting()</a> and <a href="#monitoring">Monitoring</a></p>
+<p>See <a href="#evaluate">Evaluate</a>, <a href="#reporting">Reporting()</a> and <a href="#monitoring">Monitoring</a></p>
 <h1 id='parameter-dictionary'>Parameter Dictionary</h1>
 <p>The first step in an experiment is to decide the hyperparameters you want to use in the optimization process.</p>
 
@@ -541,6 +553,64 @@ You should always make sure that your Keras model works as-is before using it in
 <p><strong>Reduction Metric:</strong> The metric against which optimization is performed (e.g. &#39;val_acc&#39; or &#39;fmeasure&#39;)</p>
 
 <p><strong>Reduce Loss:</strong> If &#39;reduction_metric&#39; is a loss metric, then this needs to be True.</p>
+<h2 id='early-stopping'>Early Stopping</h2>
+<p>The time that it takes to get to the desired result may be dramatically reduced by using an early stopping functionality. It is good to note though, that from the hyperparameter optimization standpoint, early stopping is not easy to get right, and it&#39;s often better to do without it. Early stopping needs to be invoked through Talos.</p>
+
+<blockquote>
+<p>Example for using the early_stopper callback
+```python
+from talos.model.early_stopper import early_stopper</p>
+</blockquote>
+
+<p>out = model.fit(x_train, y_train,
+                batch_size=params[&#39;batch_size&#39;],
+                epochs=params[&#39;epochs&#39;],
+                verbose=0,
+                validation_data=[x_val, y_val],
+                callbacks=early_stopper(params[&#39;epochs&#39;], mode=&#39;strict&#39;))
+```</p>
+<h3 id='early_stopper-parameters'><code>early_stopper</code> parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>epochs</code></td>
+<td>NA</td>
+<td>used for moderate mode</td>
+</tr>
+<tr>
+<td><code>monitor</code></td>
+<td>val_loss</td>
+<td>the value to be monitored</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>moderate</td>
+<td>moderate, strict, or custom</td>
+</tr>
+<tr>
+<td><code>min_delta</code></td>
+<td>user input</td>
+<td>rate of change at which point flag is raised</td>
+</tr>
+<tr>
+<td><code>patience</code></td>
+<td>user input</td>
+<td>number of epochs before termination from flag</td>
+</tr>
+</tbody></table>
+
+<p>The <code>mode</code> has three options and effects the point at which the flag is raised, and the number of epochs before termination on flag:</p>
+
+<p><strong>moderate:</strong> If the value is not changing for 10th of the total epochs</p>
+
+<p><strong>strict:</strong> If the value is not changing for 2 epochs</p>
+
+<p><strong>custom:</strong> Input needs to be a list or tuple with two integers, where the first integer is <code>min_delta</code> and the second is <code>patience</code>.</p>
 <h1 id='commands'>Commands</h1><h2 id='scan'>Scan()</h2>
 <blockquote>
 <p>Starting a simple quantum random experiment</p>
@@ -702,7 +772,31 @@ You should always make sure that your Keras model works as-is before using it in
 </tbody></table>
 
 <aside class="notice"> x, y, params, and model are the only needed arguments to start the experiment, all other are optional.</aside>
-<h2 id='reporting'>Reporting()</h2>
+<h3 id='scan-object'>Scan Object</h3>
+<p>The scan object has several attributes that are used for <code>Reporting()</code>, <code>Predict()</code> and <code>Deploy()</code>, but may also be useful to access directly. The namespace only consist of meaningful attributes.</p>
+<pre class="highlight python tab-python"><code>
+<span class="c"># returns the results dataframe</span>
+<span class="n">h</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c"># returns the experiment configuration details</span>
+<span class="n">h</span><span class="o">.</span><span class="n">details</span>
+
+<span class="c"># returns the epoch entropy dataframe</span>
+<span class="n">h</span><span class="o">.</span><span class="n">peak_epochs_df</span>
+
+<span class="c"># returns the saved models (json)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">saved_models</span>
+
+<span class="c"># returns the saved model weights</span>
+<span class="n">h</span><span class="o">.</span><span class="n">saved_weights</span>
+
+<span class="c"># returns x data</span>
+<span class="n">h</span><span class="o">.</span><span class="n">x</span>
+
+<span class="c"># returns y data</span>
+<span class="n">h</span><span class="o">.</span><span class="n">y</span>
+
+</code></pre><h2 id='reporting'>Reporting()</h2>
 <p>The experiment results can be analyzed through the <a href="https://github.com/autonomio/talos/blob/master/talos/utils/reporting.py">Reporting()</a> command. The reporting consist of access to several meaningful signals related with the experiment, together with a dataframe with results for each permutation, together with the corresponding hyperparameter configurations. Reporting may be used after Scan completes, or during an experiment (from a different shell / kernel).</p>
 
 <blockquote>
@@ -803,6 +897,162 @@ Reporting works by loading the experiment log .csv file which is saved locally a
 <td><code>scan_object</code></td>
 <td>None</td>
 <td>the object from Scan() after experiment is completed</td>
+</tr>
+</tbody></table>
+<h2 id='evaluate'>Evaluate()</h2>
+<p>The models that result from the experiment <code>Scan</code> object can be evaluated with <code>Evaluate()</code>. This way one or more models may be picked for deployment using k-fold cross-validation in a straightforward manner.</p>
+
+<blockquote>
+<p>Evaluating model generality</p>
+</blockquote>
+<pre class="highlight python tab-python"><code><span class="kn">from</span> <span class="nn">talos</span> <span class="kn">import</span> <span class="n">Evaluate</span>
+
+<span class="c"># create the evaluate object</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">Evaluate</span><span class="p">(</span><span class="n">scan_object</span><span class="p">)</span>
+
+<span class="c"># perform the evaluation</span>
+<span class="n">e</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s">'macro'</span><span class="p">)</span>
+</code></pre>
+<p>NOTE: It&#39;s very important to save part of your data for evaluation, and keep it completely separated from the data you use for the actual experiment. A good approach would be where 50% of the data is saved for evaluation.</p>
+<h3 id='evaluate-functions'>Evaluate Functions</h3>
+<p>See the function docstring for a more detailed description.</p>
+
+<p><strong><code>evaluate</code></strong> The highest result for a given metric</p>
+<h3 id='evaluate-arguments'>Evaluate Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>x</td>
+<td>NA</td>
+<td>the predictor data x</td>
+</tr>
+<tr>
+<td>y</td>
+<td>NA</td>
+<td>the prediction data y (truth)</td>
+</tr>
+<tr>
+<td>model_id</td>
+<td>None</td>
+<td>the model_id to be used</td>
+</tr>
+<tr>
+<td>folds</td>
+<td>None</td>
+<td>number of folds to be used for cross-validation</td>
+</tr>
+<tr>
+<td>shuffle</td>
+<td>None</td>
+<td>if data is shuffled before splitting</td>
+</tr>
+<tr>
+<td>average</td>
+<td>&#39;binary&#39;</td>
+<td>&#39;binary&#39;, &#39;micro&#39;, &#39;macro&#39;, &#39;samples&#39;, or &#39;weighted&#39;</td>
+</tr>
+<tr>
+<td>metric</td>
+<td>None</td>
+<td>the metric against which the validation is performed</td>
+</tr>
+<tr>
+<td>asc</td>
+<td>None</td>
+<td>should be True if metric is a loss</td>
+</tr>
+</tbody></table>
+
+<aside class='notice'> The above arguments are for the <code>evaluate</code> attribute of the <code>Evaluate</code> object.</aside>
+<h2 id='deploy'>Deploy()</h2>
+<blockquote>
+<p>A successful experiment can be deployed easily
+```Python
+from talos import Deploy</p>
+</blockquote>
+
+<p>Deploy(scan_object, &#39;experiment_name&#39;)
+```</p>
+
+<p>When you&#39;ve achieved a successful result, you can use <code>Deploy()</code> to prepare a production ready package that can be easily transferred to another environment or system, or sent or uploaded. The deployment package will consists of the best performing model, which is picked automatically against &#39;val_acc&#39; unless stated with <code>metric</code> argument.</p>
+
+<p>The deploy package consists of:</p>
+
+<ul>
+<li>details of the scan (details.txt)</li>
+<li>model weights (model.h5)</li>
+<li>model json (model.json)</li>
+<li>results of the experiment (results.csv)</li>
+<li>sample of x data (x.csv)</li>
+<li>sample of y data (y.csv)</li>
+</ul>
+
+<p>The package can be restored into a copy of the original Scan object using the <code>Restore()</code> command.</p>
+<h3 id='deploy-arguments'>Deploy Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>scan_object</code></td>
+<td>None</td>
+<td>a <code>Scan</code> object</td>
+</tr>
+<tr>
+<td><code>model_name</code></td>
+<td>None</td>
+<td>a string value as the name of experiment</td>
+</tr>
+<tr>
+<td><code>metric</code></td>
+<td>&#39;val_acc&#39;</td>
+<td>metric against which best model is picked</td>
+</tr>
+<tr>
+<td><code>asc</code></td>
+<td>False</td>
+<td>use True for loss functions</td>
+</tr>
+</tbody></table>
+<h2 id='restore'>Restore()</h2>
+<blockquote>
+<p>The Deploy package can be read back to an object
+```Python
+from talos import Restore</p>
+</blockquote>
+
+<p>a = Restore(scan_object, &#39;experiment_name&#39;)
+```</p>
+
+<p>The <code>Deploy()</code> .zip package can be read back into a copy of the original experiment assets with <code>Restore()</code>. The object consists of:</p>
+
+<ul>
+<li>details of the scan</li>
+<li>model</li>
+<li>results of the experiment</li>
+<li>sample of x data</li>
+<li>sample of y data</li>
+</ul>
+<h3 id='restore-arguments'>Restore Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>path_to_zip</code></td>
+<td>None</td>
+<td>full path to the <code>Deploy</code> asset zip file</td>
 </tr>
 </tbody></table>
 <h1 id='monitoring'>Monitoring</h1>
